@@ -1,0 +1,44 @@
+<div class="inputvalue">
+  <input type="text" #searchCityValue>
+  <button class="btn btn-primary" (click)="searchfnc(searchCityValue.value)">Search</button>
+</div>
+
+<div class="searchElements">
+<h4 class="alert alert-light" role="alert">CURRENT SEARCH</h4>
+<div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">City Name</th>
+      <th scope="col" colspan="3">Wheather</th>
+      <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{currentWeatherValue.cityName}}</td>
+      <td *ngFor="let value of currentWeatherValue.weatherValues">{{value}}</td>
+      <td>{{currentWeatherValue.searchTime}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4 class="alert alert-light" role="alert">PAST SEARCH</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">City Name</th>
+      <th scope="col" colspan="3">Wheather</th>
+      <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let values of pastWeatherValue">
+      <td>{{values.cityName}}</td>
+      <td *ngFor="let value of values.weatherValues">{{value}}</td>
+      <td>{{values.searchTime}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
